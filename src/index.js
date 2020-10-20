@@ -12,6 +12,7 @@ menuCardContainerEl.insertAdjacentHTML('beforeend', cardsMarkup);
 
 
 const theme = {
+  NAME: 'pageTheme',
   LIGHT: 'light-theme',
   DARK: 'dark-theme',
 };
@@ -25,20 +26,20 @@ checkTheme();
 
 function onChangeTheme(evt) {
     if (evt.currentTarget.checked) {
-     localStorage.setItem('pageTheme', theme.DARK);
+     localStorage.setItem(theme.NAME, theme.DARK);
      bodyEl.classList.remove(theme.LIGHT);
      bodyEl.classList.add(theme.DARK);
            
   }
     else {
-     localStorage.setItem('pageTheme', theme.LIGHT);
+     localStorage.setItem(theme.NAME, theme.LIGHT);
      bodyEl.classList.remove(theme.DARK);
      bodyEl.classList.add(theme.LIGHT);
     }
 };
 
 function checkTheme() {
-    const savedTheme = localStorage.getItem('pageTheme');
+    const savedTheme = localStorage.getItem(theme.NAME);
     if (savedTheme === theme.DARK ) {
         bodyEl.classList.add(theme.DARK);
         changeThemeEl.checked = true;
